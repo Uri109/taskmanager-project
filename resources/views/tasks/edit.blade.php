@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','Edit '.$task->title)
+@section('content')<section class="page narrow shell"><a class="back" href="{{ route('projects.show',$project) }}">← Back to {{ $project->title }}</a><div class="editor-head"><span class="eyebrow"><i></i> Update task</span><h1>Move the work forward</h1><p>Change the status to Done and Orbit will celebrate the win.</p></div><form method="POST" action="{{ route('projects.tasks.update',[$project,$task]) }}" class="editor-card">@csrf @method('PUT') @include('partials.task-form')<div class="form-actions"><a href="{{ route('projects.show',$project) }}" class="text-btn">Cancel</a><button class="btn">Save task →</button></div></form></section>@endsection

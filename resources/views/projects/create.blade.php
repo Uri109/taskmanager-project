@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','New project')
+@section('content')<section class="page narrow shell"><a class="back" href="{{ route('projects.index') }}">← Back to projects</a><div class="editor-head"><span class="eyebrow"><i></i> New beginning</span><h1>Create a project</h1><p>Give your idea a home. You can refine the details anytime.</p></div><form method="POST" action="{{ route('projects.store') }}" class="editor-card">@csrf @include('partials.project-form')<div class="form-actions"><a href="{{ route('projects.index') }}" class="text-btn">Cancel</a><button class="btn">Create project →</button></div></form></section>@endsection

@@ -1,0 +1,1 @@
+<label class="field"><span>{{ $label }}</span><input type="{{ $type ?? 'text' }}" name="{{ $name }}" value="{{ ($type ?? '') === 'password' ? '' : old($name, $value ?? '') }}" placeholder="{{ $placeholder ?? '' }}" @if($name !== 'description' && !in_array($name, ['due_date','color'])) required @endif>@error($name)<small>{{ $message }}</small>@enderror</label>

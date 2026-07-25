@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','New task')
+@section('content')<section class="page narrow shell"><a class="back" href="{{ route('projects.show',$project) }}">← Back to {{ $project->title }}</a><div class="editor-head"><span class="eyebrow"><i></i> {{ $project->title }}</span><h1>Add the next step</h1><p>Make it specific, achievable, and easy to move forward.</p></div><form method="POST" action="{{ route('projects.tasks.store',$project) }}" class="editor-card">@csrf @include('partials.task-form')<div class="form-actions"><a href="{{ route('projects.show',$project) }}" class="text-btn">Cancel</a><button class="btn">Add task →</button></div></form></section>@endsection

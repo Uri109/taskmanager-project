@@ -1,0 +1,7 @@
+<div class="form-grid">
+@include('partials.input', ['name'=>'title','label'=>'Task title','placeholder'=>'What needs to be done?','value'=>$task->title ?? ''])
+<label class="field full-span"><span>Notes <b>Optional</b></span><textarea name="description" placeholder="Add context, links, or a definition of done…">{{ old('description', $task->description ?? '') }}</textarea>@error('description')<small>{{ $message }}</small>@enderror</label>
+<label class="field"><span>Status</span><select name="status"><option value="todo" @selected(old('status', $task->status ?? 'todo')==='todo')>To Do</option><option value="in_progress" @selected(old('status', $task->status ?? '')==='in_progress')>In Progress</option><option value="done" @selected(old('status', $task->status ?? '')==='done')>Done</option></select>@error('status')<small>{{ $message }}</small>@enderror</label>
+<label class="field"><span>Priority</span><select name="priority"><option value="low" @selected(old('priority', $task->priority ?? '')==='low')>Low</option><option value="medium" @selected(old('priority', $task->priority ?? 'medium')==='medium')>Medium</option><option value="high" @selected(old('priority', $task->priority ?? '')==='high')>High</option></select>@error('priority')<small>{{ $message }}</small>@enderror</label>
+@include('partials.input', ['name'=>'due_date','label'=>'Due date','type'=>'date','value'=>isset($task) && $task->due_date ? $task->due_date->format('Y-m-d') : ''])
+</div>

@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','Edit '.$project->title)
+@section('content')<section class="page narrow shell"><a class="back" href="{{ route('projects.show',$project) }}">← Back to project</a><div class="editor-head"><span class="eyebrow"><i></i> Project details</span><h1>Fine-tune the plan</h1><p>Keep the destination clear as the work evolves.</p></div><form method="POST" action="{{ route('projects.update',$project) }}" class="editor-card">@csrf @method('PUT') @include('partials.project-form')<div class="form-actions"><a href="{{ route('projects.show',$project) }}" class="text-btn">Cancel</a><button class="btn">Save changes →</button></div></form></section>@endsection
